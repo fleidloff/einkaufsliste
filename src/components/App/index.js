@@ -29,12 +29,16 @@ const initialItems = [
 function App() {
     const [items, setItems] = useState(initialItems);
 
+    function addItem(item) {
+        setItems([{name: item, id: uuid()}, ...items])
+    }
+
   return (
     <Title>
       <Header>
         foo
       </Header>
-      <NewItemForm addItem={(item) => setItems([{name: item, id: uuid()}, ...items])} />
+      <NewItemForm addItem={addItem} />
       <Items items={items} />
     </Title>
   );
