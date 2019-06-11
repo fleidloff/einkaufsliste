@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import styled from 'styled-components'
 import uuid from 'uuid/v4';
 
 import NewItemForm from '../NewItemForm'
 import Items from '../Items'
+
+import ItemContext from '../../ItemContext'
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -15,31 +17,44 @@ const Header = styled.div`
     text-decoration: underline;
 `
 
-const initialItems = [
-{
-    id: uuid(),
-    name: "Milk"
-},
-{
-    id: uuid(),
-    name: "Butter"
-}
+
+const initialItems = [{
+        id: uuid(),
+        name: "Milk"
+    },{
+        id: uuid(),
+        name: "Butter"
+    }
 ]
 
-function App() {
-    const [items, setItems] = useState(initialItems);
+const itemsReducer = (state, action) => {
+    
+  switch (action.type) {
+    case 'ADD_ITEM':
+      return [{name: action.itemName, id: uuid()}, ...state];
+    case 'DELETE_ITEM':
+      return state.filter(item => item.id !== action.item.id);
+    default:
+      throw new Error();
+  }
+};
 
-    function addItem(item) {
-        setItems([{name: item, id: uuid()}, ...items])
+function App() {
+    const [items, dispatchItems] = useReducer(itemsReducer, initialItems);
+
+    function addItem(itemName) {
+        dispatchItems({ type: 'ADD_ITEM', itemName });
     }
 
   return (
     <Title>
-      <Header>
-        foo
-      </Header>
-      <NewItemForm addItem={addItem} />
-      <Items items={items} />
+      <ItemContext.Provider value={{ dispatchItems }}>
+          <Header>
+            foo
+          </Header>
+          <NewItemForm addItem={addItem} />
+          <Items items={items} />
+      </ItemContext.Provider>
     </Title>
   );
 }
