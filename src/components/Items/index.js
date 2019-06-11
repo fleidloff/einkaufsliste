@@ -4,7 +4,7 @@ import ItemContext from '../../ItemContext'
 
 
 function Items({ items, ...rest }) {
-
+debugger
     function deleteItem(item, dispatchItems) {
         return () => dispatchItems({ type: 'DELETE_ITEM', item });
     }
