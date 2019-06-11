@@ -3,8 +3,7 @@ import React from 'react';
 import ItemContext from '../../ItemContext'
 
 
-function Items({ items, ...rest }) {
-debugger
+function Items({ items  }) {
     function deleteItem(item, dispatchItems) {
         return () => dispatchItems({ type: 'DELETE_ITEM', item });
     }
