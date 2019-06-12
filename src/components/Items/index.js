@@ -1,25 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import ItemContext from '../../ItemContext'
+import ItemsContext from '../../Context/Items/ItemsContext'
 
+import Item from "./Item"
 
-function Items({ items  }) {
-    function deleteItem(item, dispatchItems) {
-        return () => dispatchItems({ type: 'DELETE_ITEM', item });
-    }
+function Items() {
 
-  return (
-    <ItemContext.Consumer>
-    {({ dispatchItems }) => (
-        <div>
-            {items.map(item => (
-                <div key={item.id}>{item.name} <div onClick={deleteItem(item, dispatchItems)}>X</div></div>
-            ))}
-        </div>
-        )}
-        
-    </ItemContext.Consumer>
-  );
+    const { items } = useContext(ItemsContext)
+
+    return items.map(item => (
+        <Item key={item.id} item={item} />
+    ))
 }
 
 export default Items;

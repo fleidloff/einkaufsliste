@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
-function NewItemForm({addItem}) { 
+import ItemsContext from '../../Context/Items/ItemsContext'
+
+
+function NewItemForm() { 
   const [item, setItem] = useState('');
 
+  const { dispatchItems } = useContext(ItemsContext)
+
   function onSubmit(e) {
-    e.preventDefault(); 
-    addItem(item); 
-    setItem("")
+      e.preventDefault(); 
+      dispatchItems({ type: 'ADD_ITEM', itemName: item });
+      setItem("")
   }
 
   function onChange(e) {
@@ -14,10 +19,10 @@ function NewItemForm({addItem}) {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-        <input type="text" value={item} onChange={onChange} />
-        <input type="submit" />
-    </form>
+        <form onSubmit={onSubmit}>
+            <input type="text" value={item} onChange={onChange} />
+            <input type="submit" />
+        </form>
   );
 }
 

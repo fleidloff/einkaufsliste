@@ -1,11 +1,12 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import styled from 'styled-components'
 import uuid from 'uuid/v4';
 
 import NewItemForm from '../NewItemForm'
 import Items from '../Items'
 
-import ItemContext from '../../ItemContext'
+import ItemsContext from '../../Context/Items/ItemsContext'
+import ItemsReducer from '../../Context/Items/ItemsReducer'
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -27,34 +28,18 @@ const initialItems = [{
     }
 ]
 
-const itemsReducer = (state, action) => {
-    
-  switch (action.type) {
-    case 'ADD_ITEM':
-      return [{name: action.itemName, id: uuid()}, ...state];
-    case 'DELETE_ITEM':
-      return state.filter(item => item.id !== action.item.id);
-    default:
-      throw new Error();
-  }
-};
-
 function App() {
-    const [items, dispatchItems] = useReducer(itemsReducer, initialItems);
-
-    function addItem(itemName) {
-        dispatchItems({ type: 'ADD_ITEM', itemName });
-    }
+    const [items, dispatchItems] = useReducer(ItemsReducer, initialItems);
 
   return (
     <Title>
-      <ItemContext.Provider value={{ dispatchItems }}>
+      <ItemsContext.Provider value={{ dispatchItems, items }}>
           <Header>
             foo
           </Header>
-          <NewItemForm addItem={addItem} />
-          <Items items={items} />
-      </ItemContext.Provider>
+          <NewItemForm />
+          <Items />
+      </ItemsContext.Provider>
     </Title>
   );
 }
