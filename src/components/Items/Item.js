@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 
+import ShoppingListItem from '../Layout/ShoppingListItem'
 import ItemsContext from '../../Context/Items/ItemsContext'
 
 function Item({ item }) {
@@ -11,9 +12,7 @@ function Item({ item }) {
         dispatchItems({ type: 'DELETE_ITEM', item });
     }
 
-    return <div key={id}>{name} 
-            <span onClick={deleteItem}>X</span>
-        </div>
+    return <ShoppingListItem name={name} onDelete={deleteItem} />
 }
 
 export default Item;

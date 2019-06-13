@@ -10,6 +10,9 @@ function NewItemForm() {
 
   function onSubmit(e) {
       e.preventDefault(); 
+      if (item == '') {
+        return;
+      }
       dispatchItems({ type: 'ADD_ITEM', itemName: item });
       setItem("")
   }
@@ -21,7 +24,7 @@ function NewItemForm() {
   return (
         <form onSubmit={onSubmit}>
             <input type="text" value={item} onChange={onChange} />
-            <input type="submit" />
+            <input type="submit" value="Add" />
         </form>
   );
 }
