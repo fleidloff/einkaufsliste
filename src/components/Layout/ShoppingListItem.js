@@ -7,14 +7,4 @@ const Item = styled.div`
   padding: 10px;
 `
 
-const Header = styled.div``
-
-function ShoppingListItem({ name, onDelete }) {
-  return (
-    <Item>
-      { name } <button onClick={onDelete}>X</button>
-    </Item>
-  );
-}
-
-export default ShoppingListItem;
+export { Item as ShoppingListItem };

@@ -13,15 +13,4 @@ const List = styled.div`
   padding: 10px 20px;
 `
 
-const Header = styled.div``
-
-function ShoppingList({ children }) {
-  return (
-    <List>
-      <Title>Shopping List</Title>
-      { children }
-    </List>
-  );
-}
-
-export default ShoppingList;
+export { List as ShoppingList, Title as ShoppingListTitle };

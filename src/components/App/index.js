@@ -3,7 +3,7 @@ import uuid from 'uuid/v4';
 
 import NewItemForm from '../NewItemForm'
 import Items from '../Items'
-import ShoppingList from '../Layout/ShoppingList'
+import { ShoppingList, ShoppingListTitle } from '../Layout/ShoppingList'
 
 import ItemsContext from '../../Context/Items/ItemsContext'
 import ItemsReducer from '../../Context/Items/ItemsReducer'
@@ -23,6 +23,7 @@ function App() {
   return (
       <ItemsContext.Provider value={{ dispatchItems, items }}>
           <ShoppingList>
+            <ShoppingListTitle>Einkaufsliste</ShoppingListTitle>
             <NewItemForm />
             <Items />
           </ShoppingList>

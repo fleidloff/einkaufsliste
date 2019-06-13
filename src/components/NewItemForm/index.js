@@ -2,6 +2,9 @@ import React, { useState, useContext } from 'react';
 
 import ItemsContext from '../../Context/Items/ItemsContext'
 
+import { Input } from '../Layout/Input'
+import { Button } from '../Layout/Button'
+
 
 function NewItemForm() { 
   const [item, setItem] = useState('');
@@ -23,8 +26,8 @@ function NewItemForm() {
 
   return (
         <form onSubmit={onSubmit}>
-            <input type="text" value={item} onChange={onChange} />
-            <input type="submit" value="Add" />
+            <Input type="text" value={item} onChange={onChange} placeholder="add item" />
+            <Button onClick={onSubmit} active={item !== ""}>add item</Button>
         </form>
   );
 }
