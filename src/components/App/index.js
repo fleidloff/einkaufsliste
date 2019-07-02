@@ -27,7 +27,7 @@ function App() {
             <NewItemForm />
           </Box>
           {Boolean(items.length) && <Box>
-            <Items items={items} />
+            <Items />
           </Box>}
       </ItemsContext.Provider>
   );
