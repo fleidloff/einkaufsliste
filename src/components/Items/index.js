@@ -1,12 +1,8 @@
 import React, { useContext } from 'react';
 
-import ItemsContext from '../../Context/Items/ItemsContext'
-
 import Item from "./Item"
 
-function Items() {
-
-    const { items } = useContext(ItemsContext)
+function Items({ items }) {
 
     return items.map(item => (
         <Item key={item.id} item={item} />

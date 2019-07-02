@@ -5,12 +5,13 @@ const Title = styled.h1`
   font-size: 1.5em;
   text-align: center;
 `
-const List = styled.div`
+
+const Box = styled.div`
   background: white;
   border: 1px solid #CCC;
   max-width: 600px;
   margin: 10px auto;
-  padding: 10px 20px;
+  padding: 40px 20px;
 `
 
-export { List as ShoppingList, Title as ShoppingListTitle };
+export { Box, Title };
