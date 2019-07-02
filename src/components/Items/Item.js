@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 
 import { ShoppingListItem } from '../Layout/ShoppingListItem'
+import { Button } from '../Layout/Button'
 import ItemsContext from '../../Context/Items/ItemsContext'
 
-function Item({ item }) {
-    const { name, id } = item;
+function Item({ item, isLast }) {
+    const { name } = item;
 
     const { dispatchItems } = useContext(ItemsContext)
 
@@ -12,7 +13,7 @@ function Item({ item }) {
         dispatchItems({ type: 'DELETE_ITEM', item });
     }
 
-    return <ShoppingListItem>{name} <button onClick={deleteItem}>X</button></ShoppingListItem>
+    return <ShoppingListItem isLast={isLast}>{name} <Button active onClick={deleteItem}>X</Button></ShoppingListItem>
 }
 
 export default Item;

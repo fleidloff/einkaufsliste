@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components'
 
 const Title = styled.h1`
@@ -11,7 +10,7 @@ const Box = styled.div`
   border: 1px solid #CCC;
   max-width: 600px;
   margin: 10px auto;
-  padding: 40px 20px;
+  padding: 20px 20px;
 `
 
 export { Box, Title };

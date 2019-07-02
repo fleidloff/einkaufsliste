@@ -13,7 +13,7 @@ function NewItemForm() {
 
   function onSubmit(e) {
       e.preventDefault(); 
-      if (item == '') {
+      if (item === '') {
         return;
       }
       dispatchItems({ type: 'ADD_ITEM', itemName: item });
