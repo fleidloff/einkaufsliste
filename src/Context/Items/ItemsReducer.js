@@ -4,6 +4,7 @@ const ItemsReducer = (state, action) => {
     
   switch (action.type) {
     case 'ADD_ITEM':
+      // todo: extract unit and name here
       return [{name: action.itemName, id: uuid()}, ...state];
     case 'DELETE_ITEM':
       return state.filter(item => item.id !== action.item.id);
