@@ -10,10 +10,12 @@ import ItemsReducer from '../../Context/Items/ItemsReducer'
 
 const initialItems = [{
         id: uuid(),
-        name: "Milk"
+        name: "Milk",
+        checked: false
     },{
         id: uuid(),
-        name: "Butter"
+        name: "Butter",
+        checked: true
     }
 ]
 

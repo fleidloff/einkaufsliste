@@ -7,6 +7,13 @@ const ItemsReducer = (state, action) => {
       return [{name: action.itemName, id: uuid()}, ...state];
     case 'DELETE_ITEM':
       return state.filter(item => item.id !== action.item.id);
+    case 'CHECK_ITEM':
+      return state.map(item => {
+        if(item.id === action.item.id) {
+          item.checked = !item.checked;
+        }
+        return item;
+      });
     default:
       throw new Error();
   }

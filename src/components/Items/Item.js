@@ -5,7 +5,7 @@ import { Button } from '../Layout/Button'
 import ItemsContext from '../../Context/Items/ItemsContext'
 
 function Item({ item, isLast }) {
-    const { name } = item;
+    const { name, checked } = item;
 
     const { dispatchItems } = useContext(ItemsContext)
 
@@ -13,7 +13,18 @@ function Item({ item, isLast }) {
         dispatchItems({ type: 'DELETE_ITEM', item });
     }
 
-    return <ShoppingListItem isLast={isLast}>{name} <Button active onClick={deleteItem}>X</Button></ShoppingListItem>
+    function checkItem() {
+        dispatchItems({ type: 'CHECK_ITEM', item });
+    }
+
+    return (
+      <ShoppingListItem isLast={isLast}>
+        <input type="checkbox" checked={checked} onClick={checkItem} />
+        {" "}
+        {name} 
+        <Button active onClick={deleteItem}>X</Button>
+      </ShoppingListItem>
+    ) 
 }
 
 export default Item;

@@ -8,6 +8,8 @@ import { Button } from '../Layout/Button'
 
 function NewItemForm() { 
   const [item, setItem] = useState('');
+  const defaultPlaceholder = 'add item'
+  const [placeholder, setPlaceholder] = useState(defaultPlaceholder);
 
   const { dispatchItems } = useContext(ItemsContext)
 
@@ -24,9 +26,17 @@ function NewItemForm() {
     setItem(e.target.value)
   }
 
+  function onFocus() {
+    setPlaceholder("")
+  }
+
+  function onBlur() {
+    setPlaceholder(defaultPlaceholder)
+  }
+
   return (
         <form onSubmit={onSubmit}>
-            <Input type="text" value={item} onChange={onChange} placeholder="add item" />
+            <Input type="text" value={item} onChange={onChange} onFocus={onFocus} onBlur={onBlur} placeholder={placeholder} />
             <Button onClick={onSubmit} active={item !== ""}>add item</Button>
         </form>
   );
