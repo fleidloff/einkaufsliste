@@ -5,7 +5,7 @@ import ItemsContext from '../../Context/Items/ItemsContext'
 import { Input } from '../Layout/Input'
 import { Button } from '../Layout/Button'
 
-
+// todo: remove name clash -> item != item name
 function NewItemForm() { 
   const [item, setItem] = useState('');
   const defaultPlaceholder = 'add item'
@@ -18,7 +18,7 @@ function NewItemForm() {
       if (item === '') {
         return;
       }
-      dispatchItems({ type: 'ADD_ITEM', itemName: item });
+      dispatchItems({ type: 'ADD_ITEM', item: { name: item } });
       setItem("")
   }
 
