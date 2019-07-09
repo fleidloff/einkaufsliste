@@ -8,9 +8,11 @@ function Items() {
 
     const { items } = useContext(ItemsContext)
 
-    return items.map((item, idx, arr) => (
+    return <table>
+      {items.map((item, idx, arr) => (
         <Item key={item.id} item={item} isLast={idx === arr.length - 1} />
-    ))
+      ))}
+    </table>
 }
 
 export default Items;

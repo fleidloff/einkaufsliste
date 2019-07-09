@@ -20,12 +20,16 @@ function Item({ item, isLast }) {
 
     return (
       <ShoppingListItem isLast={isLast}>
+
+        <td>
         <input type="checkbox" checked={checked} onClick={checkItem} id={`check_${id}`} />
+        </td>
         {" "}
-        <label htmlFor={`check_${id}`}>
-          {unit && <Unit>{unit}</Unit>}
-          {name}
-        </label> 
+          <td className="alignRight">{unit && <Unit>{unit}</Unit>}</td>
+          <td><label htmlFor={`check_${id}`}>{name}</label></td>
+        
+        
+
         <Button active className="visibleOnHoverShoppingListItem" onClick={deleteItem}>X</Button>
       </ShoppingListItem>
     ) 
