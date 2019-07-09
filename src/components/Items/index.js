@@ -8,7 +8,7 @@ function Items() {
   const { items } = useContext(ItemsContext);
 
   return (
-    <table>
+    <table style={{ width: "100%" }}>
       {items.map((item, idx, arr) => (
         <Item key={item.id} item={item} isLast={idx === arr.length - 1} />
       ))}

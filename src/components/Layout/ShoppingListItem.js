@@ -11,14 +11,9 @@ const Item = styled.tr`
   td.alignRight {
     text-align: right;
   }
-`;
-const Unit = styled.div`
-  display: inline-block;
-  background: lightblue;
-  border: 1px solid blue;
-  border-radius: 2px;
-  padding: 2px;
-  margin-right: 5px;
+  &:not(:last-child) td {
+    border-bottom: 1px dotted #ccc;
+  }
 `;
 
-export { Item as ShoppingListItem, Unit };
+export { Item as ShoppingListItem };
