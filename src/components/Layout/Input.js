@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Input = styled.input`
-  border: 1px solid #CCC;
-  color: #CCC;
+  border: 1px solid #ccc;
+  color: #ccc;
   padding: 5px;
   margin: 5px;
   &:focus {
@@ -10,5 +10,5 @@ const Input = styled.input`
     color: black;
     font-weight: bold;
   }
-`
-export { Input }
+`;
+export { Input };

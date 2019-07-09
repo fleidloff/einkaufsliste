@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Item = styled.tr`
   padding: 10px;
@@ -11,8 +11,7 @@ const Item = styled.tr`
   td.alignRight {
     text-align: right;
   }
-
-`
+`;
 const Unit = styled.div`
   display: inline-block;
   background: lightblue;
@@ -20,6 +19,6 @@ const Unit = styled.div`
   border-radius: 2px;
   padding: 2px;
   margin-right: 5px;
-`
+`;
 
 export { Item as ShoppingListItem, Unit };

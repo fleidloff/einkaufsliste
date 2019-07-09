@@ -1,44 +1,53 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from "react";
 
-import ItemsContext from '../../Context/Items/ItemsContext'
+import ItemsContext from "../../Context/Items/ItemsContext";
 
-import { Input } from '../Layout/Input'
-import { Button } from '../Layout/Button'
+import { Input } from "../Layout/Input";
+import { Button } from "../Layout/Button";
 
 // todo: remove name clash -> item != item name
-function NewItemForm() { 
-  const [item, setItem] = useState('');
-  const defaultPlaceholder = 'add item'
+function NewItemForm() {
+  const [item, setItem] = useState("");
+  const defaultPlaceholder = "add item";
   const [placeholder, setPlaceholder] = useState(defaultPlaceholder);
 
-  const { dispatchItems } = useContext(ItemsContext)
+  const { dispatchItems } = useContext(ItemsContext);
 
   function onSubmit(e) {
-      e.preventDefault(); 
-      if (item === '') {
-        return;
-      }
-      dispatchItems({ type: 'ADD_ITEM', item: { name: item } });
-      setItem("")
+    e.preventDefault();
+    if (item === "") {
+      return;
+    }
+    dispatchItems({ type: "ADD_ITEM", item: { name: item } });
+    setItem("");
   }
 
   function onChange(e) {
-    setItem(e.target.value)
+    setItem(e.target.value);
   }
 
   function onFocus() {
-    setPlaceholder("")
+    setPlaceholder("");
   }
 
   function onBlur() {
-    setPlaceholder(defaultPlaceholder)
+    setPlaceholder(defaultPlaceholder);
   }
 
   return (
-        <form onSubmit={onSubmit}>
-            <Input type="text" value={item} onChange={onChange} onFocus={onFocus} onBlur={onBlur} placeholder={placeholder} />
-            <Button onClick={onSubmit} active={item !== ""}>add item</Button>
-        </form>
+    <form onSubmit={onSubmit}>
+      <Input
+        type="text"
+        value={item}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        placeholder={placeholder}
+      />
+      <Button onClick={onSubmit} active={item !== ""}>
+        add item
+      </Button>
+    </form>
   );
 }
 
