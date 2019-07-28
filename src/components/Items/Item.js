@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 
-import { ShoppingListItem } from "../Layout/ShoppingListItem";
+import { ShoppingListItem, Unit } from "../Layout/ShoppingListItem";
 import { Button } from "../Layout/Button";
 import ItemsContext from "../../Context/Items/ItemsContext";
 
@@ -28,22 +28,17 @@ function Item({ item, isLast }) {
           id={`check_${id}`}
         />
       </td>{" "}
-      <td className="alignRight">
-        {unit && <label htmlFor={`check_${id}`}>{unit}</label>}
-      </td>
+      <td className="alignRight">{unit && <Unit>{unit}</Unit>}</td>
       <td>
         <label htmlFor={`check_${id}`}>{name}</label>
       </td>
-      <td>
-        <Button
-          active
-          className="visibleOnHoverShoppingListItem"
-          onClick={deleteItem}
-        >
-          X
-        </Button>
-      </td>
-      <td></td>
+      <Button
+        active
+        className="visibleOnHoverShoppingListItem"
+        onClick={deleteItem}
+      >
+        X
+      </Button>
     </ShoppingListItem>
   );
 }
