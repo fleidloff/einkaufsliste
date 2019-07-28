@@ -7,6 +7,13 @@ it("extracts unit", () => {
   });
 });
 
+it("extracts unit with long number", () => {
+  expect(extractUnit({ name: "10L Milk" })).toEqual({
+    name: "Milk",
+    unit: "10L"
+  });
+});
+
 it("does nothing when unit is already present", () => {
   expect(extractUnit({ name: "1L Milk", unit: "0L" })).toEqual({
     name: "1L Milk",

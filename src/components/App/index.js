@@ -3,6 +3,7 @@ import uuid from "uuid/v4";
 
 import NewItemForm from "../NewItemForm";
 import Items from "../Items";
+import ItemsMeta from "../Items/meta";
 import { Box, Title } from "../Layout/Basics";
 
 import ItemsContext from "../../Context/Items/ItemsContext";
@@ -34,6 +35,7 @@ function App() {
       </Box>
       {Boolean(items.length) && (
         <Box>
+          <ItemsMeta />
           <Items />
         </Box>
       )}

@@ -22,6 +22,12 @@ const ItemsReducer = (state, action) => {
         }
         return item;
       });
+    case "CHECK_ALL_ITEMS":
+    case "UNCHECK_ALL_ITEMS":
+      return state.map(item => {
+        item.checked = action.type === "CHECK_ALL_ITEMS";
+        return item;
+      });
     default:
       throw new Error();
   }
