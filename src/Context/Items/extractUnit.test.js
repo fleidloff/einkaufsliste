@@ -27,3 +27,10 @@ it("extracts only first unit", () => {
     unit: "1L"
   });
 });
+
+it("extracts unit only if unit is present at beginning", () => {
+  expect(extractUnit({ name: "Milk 1L" })).toEqual({
+    name: "Milk 1L",
+    unit: undefined
+  });
+});
