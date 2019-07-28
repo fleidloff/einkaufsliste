@@ -31,6 +31,8 @@ function App() {
     <ItemsContext.Provider value={{ dispatchItems, items }}>
       <Box>
         <Title>Einkaufsliste</Title>
+      </Box>
+      <Box>
         <NewItemForm />
       </Box>
       {Boolean(items.length) && (
