@@ -34,3 +34,10 @@ it("extracts unit only if unit is present at beginning", () => {
     unit: undefined
   });
 });
+
+it("Unit can also be just a number if the name is only 1 word", () => {
+  expect(extractUnit({ name: "10 waffles" })).toEqual({
+    name: "waffles",
+    unit: "10"
+  });
+});

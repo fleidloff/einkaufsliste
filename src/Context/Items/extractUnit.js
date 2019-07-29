@@ -1,4 +1,4 @@
-const unitRegex = /([0-9]+\s{0,1}[a-zA-Zäöüß]*){0,1}\s*(.*)/;
+const unitRegex = /([0-9]+[a-zA-Zäöüß]*){0,1}\s*(.*)/;
 
 // todo: allow unit at the end?
 export default function extractUnit(item) {
@@ -7,7 +7,7 @@ export default function extractUnit(item) {
     return item;
   }
 
-  const [_, unit, name] = item.name.match(unitRegex);
+  let [_, unit, name] = item.name.match(unitRegex);
 
   return { ...item, unit, name };
 }
