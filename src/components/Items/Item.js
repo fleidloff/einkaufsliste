@@ -31,14 +31,15 @@ function Item({ item, isLast }) {
       <td className="alignRight">{unit && <Unit>{unit}</Unit>}</td>
       <td>
         <label htmlFor={`check_${id}`}>{name}</label>
+        <br />
+        <Button
+          link
+          className="visibleOnHoverShoppingListItem"
+          onClick={deleteItem}
+        >
+          delete
+        </Button>
       </td>
-      <Button
-        active
-        className="visibleOnHoverShoppingListItem"
-        onClick={deleteItem}
-      >
-        X
-      </Button>
     </ShoppingListItem>
   );
 }
