@@ -7,6 +7,7 @@ export default function extractUnit(item) {
     return item;
   }
 
+  // eslint-disable-next-line no-unused-vars
   let [_, unit, name] = item.name.match(unitRegex);
 
   return { ...item, unit, name };

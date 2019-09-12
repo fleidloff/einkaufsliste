@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 import { ShoppingListItem, Unit } from "../Layout/ShoppingListItem";
 import { Button } from "../Layout/Button";
@@ -7,7 +7,6 @@ import ItemsContext from "../../Context/Items/ItemsContext";
 function Item({ item, isLast }) {
   const { unit, name, checked, id } = item;
 
-  const { isHovered, setHovered } = useState(false);
   const { dispatchItems } = useContext(ItemsContext);
 
   function deleteItem() {
